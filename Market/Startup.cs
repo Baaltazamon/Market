@@ -31,7 +31,7 @@ namespace Market
             services.AddDbContext<MarketContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IUserServices, InMemoryUserService>();
-            services.AddSingleton<IProductService, InMemoryProductService>();
+            services.AddScoped<IProductService, SqlProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

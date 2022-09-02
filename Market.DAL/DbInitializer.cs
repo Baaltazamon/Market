@@ -76,9 +76,9 @@ namespace Market.DAL
                     context.Categories.Add(section);
                 }
 
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Sections] ON");
+                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Category] ON");
                 context.SaveChanges();
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Sections] OFF");
+                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Category] OFF");
                 trans.Commit();
             }
             var brands = new List<Brand>
@@ -115,9 +115,9 @@ namespace Market.DAL
                     context.Brands.Add(brand);
                 }
 
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brands] ON");
+                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brand] ON");
                 context.SaveChanges();
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brands] OFF");
+                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brand] OFF");
                 trans.Commit();
             }
             var products = new List<Product>
@@ -189,9 +189,9 @@ namespace Market.DAL
                 {
                     context.Products.Add(product);
                 }
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Products] ON");
+                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Product] ON");
                 context.SaveChanges();
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Products] OFF");
+                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Product] OFF");
                 trans.Commit();
             }
 
