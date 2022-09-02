@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Market.ViewModels.CategoryViewModel>
+<div class="panel-group category-products" id="accordian">
+    <!--category-productsr-->
+    @foreach (var item in Model)
+    {
+        if (item.ChildCategory.Count > 0)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            @item.Name
+                        </a>
+                    </h4>
+                </div>
+                <div id="sportswear" class="panel-collapse collapse">
+                
+                    <div class="panel-body">
+                        <ul>
+                            @foreach (var child in item.ChildCategory)
+                            {
+                                <li><a asp-controller="Catalog" asp-action="Products" asp-route-categoryId="@child.Id">@child.Name </a></li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a asp-controller="Catalog" asp-action="Products" asp-route-categoryId="@item.Id">@item.Name</a></h4>
+                </div>
+            </div>
+        }
+    }
+   
+   
+</div><!--/category-productsr-->
