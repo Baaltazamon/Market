@@ -72,7 +72,12 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Users" asp-controller="User">Пользователи</a>
                         </li>
+
                     </ul>
+                </div>
+                <div>
+                    @await Component.InvokeAsync("LoginLogout");
+
                 </div>
             </div>
         </nav>
